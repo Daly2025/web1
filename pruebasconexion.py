@@ -6,12 +6,14 @@ conexion = pymysql.connect(
     host='localhost',
     user='root', 
     password='', 
-    db='sakila')
+    db='tiendamvc')
 
 try:
     with conexion.cursor() as cursor:
         #creamos la consulta 
-        consulta = "SELECT * FROM actor"
+        #consulta = "SELECT * FROM actor"
+        #insertar datos
+        consulta = "INSERT INTO actor(first_name,last_name) VALUES('Juan','Perez')"
         #ejecutamos la consulta 
         cursor.execute(consulta)
         #obtenemos los resultados
@@ -25,4 +27,4 @@ finally:
     conexion.close()
     print("Conexión cerrada")
 
-                            
+                        
