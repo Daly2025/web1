@@ -1,4 +1,13 @@
 from flask import Flask,render_template,request,redirect,url_for,session
+import pymysql
+
+#creamos la conexion
+conexion = pymysql.connect(
+    host='localhost',
+    user='root', 
+    password='', 
+    db='sakila')
+
 
 app = Flask(__name__)
 app.secret_key="123456"
