@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <form action="{{ url_for('login') }}" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Login">
-    </form>
-    <h2>{{ mensaje }}</h2>
+    <div class="login-container">
+        <form action="{{ url_for('login') }}" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+
+        <!-- Mostrar mensaje de error solo si existe -->
+        {% if mensaje %}
+            <div class="error-message">
+                <p>{{ mensaje }}</p>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
